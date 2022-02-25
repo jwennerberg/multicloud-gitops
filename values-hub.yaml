@@ -13,6 +13,9 @@ clusterGroup:
     namespace: open-cluster-management
     channel: release-2.4
     csv: advanced-cluster-management.v2.4.1
+  - name: openshift-pipelines-operator-rh
+    namespace: openshift-operators
+    channel: stable
 
   projects:
   - hub
