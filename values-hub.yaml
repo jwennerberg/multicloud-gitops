@@ -4,9 +4,9 @@ clusterGroup:
 
   namespaces:
   - open-cluster-management
+  - config-demo
 #  - vault
 #  - golang-external-secrets
-#  - config-demo
 
   subscriptions:
   - name: advanced-cluster-management
@@ -19,7 +19,7 @@ clusterGroup:
 
   projects:
   - hub
-#  - config-demo
+  - config-demo
 #  - golang-external-secrets
 
   applications:
@@ -33,6 +33,11 @@ clusterGroup:
       jsonPointers:
         - /spec/loggingCA
 
+  - name: config-demo
+    namespace: config-demo
+    project: config-demo
+    path: charts/all/config-demo
+#
 #  - name: vault
 #    namespace: vault
 #    project: hub
@@ -64,10 +69,6 @@ clusterGroup:
 #    project: golang-external-secrets
 #    path: charts/hub/golang-external-secrets
 #
-#  - name: config-demo
-#    namespace: config-demo
-#    project: config-demo
-#    path: charts/all/config-demo
 
 #  managedClusterGroups:
 #  - name: region-one
