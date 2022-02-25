@@ -4,9 +4,9 @@ clusterGroup:
 
   namespaces:
   - open-cluster-management
+  - vault
+  - golang-external-secrets
   - config-demo
-#  - vault
-#  - golang-external-secrets
 
   subscriptions:
   - name: advanced-cluster-management
@@ -20,7 +20,7 @@ clusterGroup:
   projects:
   - hub
   - config-demo
-#  - golang-external-secrets
+  - golang-external-secrets
 
   applications:
   - name: acm
@@ -37,38 +37,37 @@ clusterGroup:
     namespace: config-demo
     project: config-demo
     path: charts/all/config-demo
-#
-#  - name: vault
-#    namespace: vault
-#    project: hub
-#    chart: vault
-#    repoURL: https://helm.releases.hashicorp.com
-#    targetRevision: v0.19.0
-#    overrides:
-#    - name: global.openshift
-#      value: "true"
-#    - name: injector.enabled
-#      value: "false"
-#    - name: ui.enabled
-#      value: "true"
-#    - name: ui.serviceType
-#      value: LoadBalancer
-#    - name: server.route.enabled
-#      value: "true"
-#    - name: server.route.host
-#      value: null
-#    - name: server.route.tls.termination
-#      value: edge
-#    - name: server.image.repository
-#      value: "registry.connect.redhat.com/hashicorp/vault"
-#    - name: server.image.tag
-#      value: "1.9.2-ubi"
-#
-#  - name: golang-external-secrets
-#    namespace: golang-external-secrets
-#    project: golang-external-secrets
-#    path: charts/hub/golang-external-secrets
-#
+
+  - name: vault
+    namespace: vault
+    project: hub
+    chart: vault
+    repoURL: https://helm.releases.hashicorp.com
+    targetRevision: v0.19.0
+    overrides:
+    - name: global.openshift
+      value: "true"
+    - name: injector.enabled
+      value: "false"
+    - name: ui.enabled
+      value: "true"
+    - name: ui.serviceType
+      value: LoadBalancer
+    - name: server.route.enabled
+      value: "true"
+    - name: server.route.host
+      value: null
+    - name: server.route.tls.termination
+      value: edge
+    - name: server.image.repository
+      value: "registry.connect.redhat.com/hashicorp/vault"
+    - name: server.image.tag
+      value: "1.9.2-ubi"
+
+  - name: golang-external-secrets
+    namespace: golang-external-secrets
+    project: golang-external-secrets
+    path: charts/hub/golang-external-secrets
 
 #  managedClusterGroups:
 #  - name: region-one
